@@ -9,6 +9,8 @@ ENV/
 
 # Mac system files
 .DS_Store
+._*
+.AppleDouble
 
 # Flask instance folder
 instance/

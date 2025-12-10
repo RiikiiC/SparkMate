@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark Mate - Login</title>
-    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Spark Mate - Organizer</title>
+    <link rel="stylesheet" href="../static/css/main.css">
 
     <meta name="description" content="SparkMate helps people easily find the right companion for these moments and rebuild a sense of connection and belonging."> 
     <meta name="keywords" content="activities, hobby circle, meetup, friends, events"> 
@@ -42,23 +42,50 @@
         </nav>
     </header>
 
+    <main class="user-page">
 
-    <main>
-        <h1 class="create-title">Log In Here</h1>
-        <form class="create-form" action="/process-login" method="POST">
-            <div class="create-row">
-                <label for="email" class="label">email</label>
-                <input required type="email" id="email" name="email" placeholder="Enter your email" class="input">
-            </div> 
-            <div class="create-row">
-                <label for="password" class="label">Password</label>
-                <input required type="password" id="password" name="password" class="input">
-            </div> 
-            <button type="submit" class="submit-btn">LOG IN</button>
-            <p>Don't have an account? <a href="/register">Register here</a></p>   
-        </form>
+        <section>
+            <h1 class="user-name">{{ organizer.name }}</h1>
+            <p>{{ organizer.email }}</p>
+            <hr class="line">
+
+            <div class="user-stats">
+                <div>
+                    <span class="number">{{ posts_count }}</span>
+                    <span class="stat-label">POSTS</span>
+                </div>
+                <div class="v-line"></div>
+                <div>
+                    <span class="number">3</span>
+                    <span class="stat-label">CIRCLES</span>
+                </div>
+                <div class="v-line"></div>
+                <div>
+                    <span class="number">9</span>
+                    <span class="stat-label">FRIENDS</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">ACTIVITES</h2>
+
+            <div class="activity-list">
+                {% if activities %}
+                    {% for activity in activities %}
+                        <div class="activity-row">
+                            <div class="account-activity-title">{{ activity.title}}</div>
+                            <div class="activity-actions">
+                                <a href="/activity/{{ activity.id }}" class="activity-link">Details</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                        <p>This user has not created any activities yet.</p>
+                {% endif %}
+            </div>
+        </section>
     </main>
-
 
     <footer>
         <div class="footer-info">
@@ -81,6 +108,7 @@
         </div>
         <img src="/static/images/logo.png" alt="Spark Mate logo" class="footer-logo">
     </footer>
+
     <script src="/static/js/main.js"></script>
 </body>
 </html>

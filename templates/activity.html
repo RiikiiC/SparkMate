@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark Mate - Login</title>
+    <title>Spark Mate - Activity</title>
     <link rel="stylesheet" href="/static/css/main.css">
 
     <meta name="description" content="SparkMate helps people easily find the right companion for these moments and rebuild a sense of connection and belonging."> 
@@ -42,23 +42,57 @@
         </nav>
     </header>
 
+    <main class="activity-page">
+        <h1 class="activity-title">{{ activity.title }}</h1>
 
-    <main>
-        <h1 class="create-title">Log In Here</h1>
-        <form class="create-form" action="/process-login" method="POST">
-            <div class="create-row">
-                <label for="email" class="label">email</label>
-                <input required type="email" id="email" name="email" placeholder="Enter your email" class="input">
-            </div> 
-            <div class="create-row">
-                <label for="password" class="label">Password</label>
-                <input required type="password" id="password" name="password" class="input">
-            </div> 
-            <button type="submit" class="submit-btn">LOG IN</button>
-            <p>Don't have an account? <a href="/register">Register here</a></p>   
-        </form>
+        <section class="activity-info">
+            <div class="activity-pic"
+                {% if activity.cover_image %}
+                    style="background-image: url('/static/images/activity_pic/{{ activity.cover_image }}'); 
+                            background-size: cover;
+                            background-position: center;"
+                {% endif %}>
+            </div>
+
+            <div class="activity-card">
+                <div class="like">
+                    {% if user %}
+                        <form action="/like/{{ activity.id }}" method="POST" class="like-form">
+                            {% if userliked %}
+                                    <button type="submit" class="liked-btn js-like-btn"></button>
+                            {% else %}
+                                    <button type="submit" class="like-btn js-like-btn"></button>
+                            {% endif %}
+                        </form>
+                    {% else %}
+                        <a href="/login" class="like-hint"></a>
+                    {% endif %}
+                </div>
+                <p>{{ activity.time_start }} - {{ activity.time_end }}</p>
+                <p>{{ activity.event_date }}</p>
+                <p>Location: {{ activity.location }}</p>
+                <p>Budget: ${{ activity.budget }}</p>
+                <p>Organizer: {{ activity.organizer_name }}</p>
+                <p>{{ activity.joined_count }} joined | 
+                    <span class="likes-count">{{ activity.likes_count }}</span> likes</p>
+
+                {% if user %}
+                    <a class="contact-btn" href="/organizer/{{ activity.organizer_id }}">
+                        CONTACT
+                    </a>
+                {% else %}
+                    <a class="contact-btn" href="/login">
+                        CONTACT
+                    </a>
+                {% endif %}
+                </div>
+        </section>
+
+        <section class="activity-description">
+            <p>{{ activity.detail }}</p>
+        </section>
+
     </main>
-
 
     <footer>
         <div class="footer-info">
@@ -81,6 +115,7 @@
         </div>
         <img src="/static/images/logo.png" alt="Spark Mate logo" class="footer-logo">
     </footer>
+
     <script src="/static/js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Mate</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+
+    <meta name="description" content="SparkMate helps people easily find the right companion for these moments and rebuild a sense of connection and belonging."> 
+    <meta name="keywords" content="activities, hobby circle, meetup, friends, events"> 
+    <link rel="author" content="Riikii"/>
+
+    <meta property="og:title" content="Spark Mate">
+    <meta property="og:description" content="Discover activities and meet people with the same hobbies.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/static/images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Spark Mate">
+    <meta name="twitter:description" content="Discover activities and meet new friends.">
+    <meta name="twitter:image" content="/static/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/favicon_io/site.webmanifest">
+</head>
+<body>
+    <main class="create-page">
+        <h1 class="create-title">Edit Activity</h1>
+
+        <form class="create-form" action="/activity-edit/{{ activity.id }}" method="POST">
+            <div class="create-row">
+                <label for="title" class="label">Theme:</label>
+                <input type="text" id="title" name="title" class="input" value="{{ activity.title }}" required>
+            </div>
+
+            <div class="create-row">
+                <label for="detail" class="label">Detail:</label>
+                <textarea id="detail" name="detail" rows="5" class="input" required>{{ activity.detail }}</textarea>
+            </div>
+
+            <div class="create-row">
+                <label for="event_date" class="label">Date:</label>
+                <input type="date" id="event_date" name="event_date" class="input" value="{{ activity.event_date }}" required>
+            </div>
+
+            <div class="create-row">
+                <label for="time_start" class="label">Time:</label>
+                <input type="time" id="time_start" name="time_start" class="input" value="{{ activity.time_start }}" required>
+                <span style="padding: 0 4px;">-</span>
+                <input type="time" id="time_end" name="time_end" class="input" value="{{ activity.time_end }}" required>
+            </div>
+
+            <div class="create-row">
+                <label for="location" class="label">Location:</label>
+                <input type="text" id="location" name="location" class="input" value="{{ activity.location }}" required>
+            </div>
+
+            <div class="create-row">
+                <label for="budget" class="label">Budget:</label>
+                <input type="text" id="budget" name="budget" class="input" value="{{ activity.budget }}">
+            </div>
+
+            <input type="submit" class="submit-btn" value="Update">
+            <a href="/account" class="submit-btn">Cancel</a>
+        </form>        
+    </main>
+
+</body>
+</html>

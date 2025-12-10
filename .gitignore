@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Mac system files
+.DS_Store
+
+# Flask instance folder
+instance/
+
+# Environment variables
+.env
+
+# MySQL
+*.sql

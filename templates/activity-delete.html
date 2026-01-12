@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Mate</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+
+    <meta name="description" content="SparkMate helps people easily find the right companion for these moments and rebuild a sense of connection and belonging."> 
+    <meta name="keywords" content="activities, hobby circle, meetup, friends, events"> 
+    <link rel="author" content="Riikii"/>
+
+    <meta property="og:title" content="Spark Mate">
+    <meta property="og:description" content="Discover activities and meet people with the same hobbies.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/static/images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Spark Mate">
+    <meta name="twitter:description" content="Discover activities and meet new friends.">
+    <meta name="twitter:image" content="/static/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/favicon_io/site.webmanifest">
+</head>
+<body>
+    <main>
+        <h1 class="create-title">Delete Activity</h1>
+        <p class="delete">delete {{ activity.title }}?</p>
+
+        <form action="/activity-delete/{{ activity.id }}" method="POST">
+            <input type="submit" class="submit-btn" value="Delete">
+            <a href="/account" class="submit-btn">Cancel</a>            
+        </form>
+
+    </main>
+
+</body>
+</html>

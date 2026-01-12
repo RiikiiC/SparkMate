@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Mate - Login</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <meta name="description" content="SparkMate helps people easily find the right companion for these moments and rebuild a sense of connection and belonging."> 
+    <meta name="keywords" content="activities, hobby circle, meetup, friends, events"> 
+    <link rel="author" content="Riikii"/>
+
+    <meta property="og:title" content="Spark Mate">
+    <meta property="og:description" content="Discover activities and meet people with the same hobbies.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/static/images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Spark Mate">
+    <meta name="twitter:description" content="Discover activities and meet new friends.">
+    <meta name="twitter:image" content="/static/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/favicon_io/site.webmanifest">
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img src="/static/images/logo.png" alt="logo" class="logo">
+        </a>
+
+        <nav class="nav">
+            <input type="text" class="search" placeholder="">
+            <a href="/events" class="nav-link active">recent</a>
+            <a href="/#">near</a>
+            <a href="/circles">circles</a>
+            <a href="/account" class="account-link">
+                <img src="/static/images/account.png" alt="Account">
+            </a>
+        </nav>
+    </header>
+
+
+    <main>
+        <h1 class="create-title">Log In Here</h1>
+        <form class="create-form" action="/process-login" method="POST">
+            <div class="create-row">
+                <label for="email" class="label">email</label>
+                <input required type="email" id="email" name="email" placeholder="Enter your email" class="input">
+            </div> 
+            <div class="create-row">
+                <label for="password" class="label">Password</label>
+                <input required type="password" id="password" name="password" class="input">
+            </div> 
+            <button type="submit" class="submit-btn">LOG IN</button>
+            <p>Don't have an account? <a href="/register">Register here</a></p>   
+        </form>
+    </main>
+
+
+    <footer>
+        <div class="footer-info">
+            <a href="/#">About us</a>
+            <a href="/#">Contact</a>
+            <div class="footer-icons">
+                <a href="#" aria-label="Facebook">
+                    <img src="/static/images/fb.png" alt="Facebook">
+                </a>
+                <a href="#" aria-label="X">
+                    <img src="/static/images/x.png" alt="X">
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <img src="/static/images/ig.png" alt="Instagram">
+                </a>
+                <a href="#" aria-label="Youtube">
+                    <img src="/static/images/yt.png" alt="Youtube">
+                </a>
+            </div>
+        </div>
+        <img src="/static/images/logo.png" alt="Spark Mate logo" class="footer-logo">
+    </footer>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
